@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#111827">
+<title>3D Calc – 3D Druck Kalkulator</title>
+<style>
+:root{--bg:#0b1020;--panel:#111827;--card:#182235;--card2:#202c40;--line:#31405a;--text:#f3f6fb;--muted:#9aa8bd;--accent:#5b8cff;--good:#31c48d;--warn:#f5b942;--danger:#ef6670}
+*{box-sizing:border-box} body{margin:0;background:linear-gradient(135deg,#0a0f1c,#10182a);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;min-height:100vh}
+button,input,select{font:inherit} button{cursor:pointer}
+.app{display:flex;min-height:100vh}.side{width:245px;background:#0d1422;border-right:1px solid var(--line);padding:22px 15px;display:flex;flex-direction:column}
+.logo{font-weight:800;font-size:25px;letter-spacing:-1px;padding:5px 12px 28px}.logo span{color:var(--accent)}
+.nav button{width:100%;text-align:left;background:transparent;border:0;color:var(--muted);padding:13px 14px;border-radius:10px;margin:2px 0;font-weight:650}
+.nav button.active,.nav button:hover{background:#1c2940;color:white}.nav small{display:block;color:#66758d;padding:20px 14px 7px;text-transform:uppercase;font-size:10px;letter-spacing:1px}
+.sidebottom{margin-top:auto;color:#6f7d91;font-size:12px;padding:12px 14px}
+main{flex:1;padding:28px;min-width:0}.top{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:24px}.top h1{margin:0;font-size:28px}.top p{margin:5px 0 0;color:var(--muted)}
+.page{display:none}.page.active{display:block}
+.grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(330px,.75fr);gap:20px}.card{background:rgba(24,34,53,.92);border:1px solid var(--line);border-radius:16px;padding:20px}.card h2{font-size:17px;margin:0 0 16px}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.field label{display:block;font-size:12px;color:var(--muted);margin-bottom:7px}.field input,.field select{width:100%;background:#0e1727;color:var(--text);border:1px solid #34445e;border-radius:9px;padding:11px 12px;outline:none}.field input:focus,.field select:focus{border-color:var(--accent);box-shadow:0 0 0 2px #5b8cff22}
+.full{grid-column:1/-1}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:17px}.btn{border:1px solid #3b4c68;background:#18253a;color:white;border-radius:9px;padding:11px 15px;font-weight:700}.btn.primary{background:var(--accent);border-color:var(--accent)}.btn.good{background:#167a5a;border-color:#1b946d}.btn.danger{background:#63252c;border-color:#86353e}
+.results{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.metric{background:#101a2a;border:1px solid #293851;border-radius:11px;padding:14px}.metric span{display:block;color:var(--muted);font-size:11px}.metric strong{display:block;font-size:20px;margin-top:5px}.metric.highlight{grid-column:1/-1;background:#182c4c;border-color:#3d69ae}.metric.highlight strong{font-size:30px;color:#fff}
+.breakdown{margin-top:15px}.row{display:flex;justify-content:space-between;border-bottom:1px solid #29374e;padding:9px 0;font-size:13px}.row:last-child{border:0}.muted{color:var(--muted)}
+.search{margin-bottom:14px}.search input{width:100%;background:#0e1727;border:1px solid #34445e;border-radius:9px;padding:12px;color:white}
+.tablewrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:720px}.table th,.table td{text-align:left;padding:12px 10px;border-bottom:1px solid #2c3a52;font-size:13px}.table th{color:var(--muted);font-weight:600}.dot{display:inline-block;width:12px;height:12px;border-radius:50%;vertical-align:-1px;margin-right:7px;border:1px solid #ffffff44}
+.tag{display:inline-block;padding:4px 8px;border-radius:20px;background:#26344b;color:#c8d5e9;font-size:11px}.empty{padding:35px;text-align:center;color:var(--muted)}
+.notice{padding:11px 13px;background:#17243a;border:1px solid #344a6b;color:#b9c9df;border-radius:10px;margin-bottom:15px;font-size:12px}
+@media(max-width:900px){.side{width:190px}.grid{grid-template-columns:1fr}main{padding:18px}}
+@media(max-width:650px){.app{display:block}.side{width:100%;border-right:0;border-bottom:1px solid var(--line)}.nav{display:flex;overflow:auto}.nav small,.sidebottom{display:none}.nav button{white-space:nowrap;width:auto}.fields{grid-template-columns:1fr}.top{align-items:flex-start}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="side">
+  <div class="logo">3D <span>Calc</span></div>
+  <div class="nav">
+    <button class="active" data-page="calculator">◈ &nbsp; Kalkulator</button>
+    <button data-page="spools">◉ &nbsp; Spulen</button>
+    <button data-page="orders">▣ &nbsp; Aufträge</button>
+    <button data-page="settings">⚙ &nbsp; Einstellungen</button>
+  </div>
+  <div class="sidebottom">3D Druck Kalkulator · Desktop</div>
+</aside>
+
+<main>
+  <div class="top">
+    <div><h1 id="pageTitle">Kalkulator</h1><p id="pageSub">Druckkosten schnell und übersichtlich berechnen.</p></div>
+  </div>
+
+  <section id="calculator" class="page active">
+    <div class="grid">
+      <div class="card">
+        <h2>Druckdaten</h2>
+        <div class="notice">Wähle ein gespeichertes Filament oder gib die Daten direkt ein. Multi-Color kann mehrere Filamente verwenden.</div>
+        <div class="fields">
+          <div class="field"><label>Auftragsname</label><input id="jobName" placeholder="z. B. Wandhalterung"></div>
+          <div class="field"><label>Druckzeit (Stunden)</label><input id="hours" type="number" min="0" step="0.01" value="2"></div>
+          <div class="field"><label>Filament</label><select id="filamentSelect"></select></div>
+          <div class="field"><label>Filamentmenge (g)</label><input id="grams" type="number" min="0" step="0.1" value="120"></div>
+          <div class="field"><label>Filamentpreis €/kg</label><input id="priceKg" type="number" min="0" step="0.01" value="22"></div>
+          <div class="field"><label>Verschnitt / Reserve (%)</label><input id="waste" type="number" min="0" max="100" step="0.1" value="5"></div>
+          <div class="field"><label>Maschinenstundensatz €/h</label><input id="machine" type="number" min="0" step="0.01"></div>
+          <div class="field"><label>Stromkosten €/kWh</label><input id="electricity" type="number" min="0" step="0.01"></div>
+          <div class="field"><label>Druckerleistung Watt</label><input id="watts" type="number" min="0" step="1"></div>
+          <div class="field"><label>Verkaufspreis / Gewinnaufschlag %</label><input id="markup" type="number" min="0" step="0.1" value="30"></div>
+        </div>
+        <div class="actions">
+          <button class="btn primary" id="calcBtn">Berechnen</button>
+          <button class="btn good" id="saveBtn">Auftrag speichern</button>
+          <button class="btn" id="clearBtn">Zurücksetzen</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Kalkulation</h2>
+        <div class="results">
+          <div class="metric"><span>Filament</span><strong id="mFilament">0,00 €</strong></div>
+          <div class="metric"><span>Maschine</span><strong id="mMachine">0,00 €</strong></div>
+          <div class="metric"><span>Strom</span><strong id="mPower">0,00 €</strong></div>
+          <div class="metric"><span>Gesamtkosten</span><strong id="mCost">0,00 €</strong></div>
+          <div class="metric highlight"><span>Empfohlener Verkaufspreis</span><strong id="mSell">0,00 €</strong></div>
+        </div>
+        <div class="breakdown">
+          <div class="row"><span>Material inkl. Reserve</span><b id="bMaterial">0,00 €</b></div>
+          <div class="row"><span>Maschinenzeit</span><b id="bMachine">0,00 €</b></div>
+          <div class="row"><span>Stromverbrauch</span><b id="bPower">0,00 €</b></div>
+          <div class="row"><span>Gewinn / Aufschlag</span><b id="bProfit">0,00 €</b></div>
+        </div>
+      </div>
+
+      <div class="card full">
+        <h2>Multi-Color</h2>
+        <div class="fields">
+          <div class="field"><label>2. Filamentmenge (g)</label><input id="grams2" type="number" min="0" step="0.1" value="0"></div>
+          <div class="field"><label>2. Filamentpreis €/kg</label><input id="priceKg2" type="number" min="0" step="0.01" value="22"></div>
+          <div class="field"><label>3. Filamentmenge (g)</label><input id="grams3" type="number" min="0" step="0.1" value="0"></div>
+          <div class="field"><label>3. Filamentpreis €/kg</label><input id="priceKg3" type="number" min="0" step="0.01" value="22"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="spools" class="page">
+    <div class="card">
+      <h2>Filament & Spulen</h2>
+      <div class="fields">
+        <div class="field"><label>Hersteller / Marke</label><input id="sBrand" placeholder="Bambu Lab"></div>
+        <div class="field"><label>Filamentname</label><input id="sName" placeholder="PLA Basic"></div>
+        <div class="field"><label>Material</label><select id="sMaterial"><option>PLA</option><option>PETG</option><option>ABS</option><option>ASA</option><option>TPU</option><option>PC</option><option>Sonstiges</option></select></div>
+        <div class="field"><label>Farbe</label><input id="sColor" type="color" value="#3b82f6"></div>
+        <div class="field"><label>Preis €</label><input id="sPrice" type="number" min="0" step="0.01" value="22"></div>
+        <div class="field"><label>Gewicht Filament g</label><input id="sWeight" type="number" min="1" step="1" value="1000"></div>
+        <div class="field"><label>Restmenge g</label><input id="sRemain" type="number" min="0" step="1" value="1000"></div>
+      </div>
+      <div class="actions"><button class="btn primary" id="addSpool">Spule hinzufügen</button></div>
+    </div>
+    <div class="card" style="margin-top:20px">
+      <div class="search"><input id="spoolSearch" placeholder="Filament / Spule suchen …"></div>
+      <div class="tablewrap"><table class="table"><thead><tr><th>Farbe</th><th>Filament</th><th>Material</th><th>Preis</th><th>Rest</th><th>€/kg</th><th></th></tr></thead><tbody id="spoolRows"></tbody></table></div>
+    </div>
+  </section>
+
+  <section id="orders" class="page">
+    <div class="card">
+      <div class="search"><input id="orderSearch" placeholder="Aufträge suchen …"></div>
+      <div class="tablewrap"><table class="table"><thead><tr><th>Auftrag</th><th>Datum</th><th>Druckzeit</th><th>Material</th><th>Kosten</th><th>Verkauf</th><th>Aktionen</th></tr></thead><tbody id="orderRows"></tbody></table></div>
+    </div>
+  </section>
+
+  <section id="settings" class="page">
+    <div class="card">
+      <h2>Standardwerte</h2>
+      <div class="fields">
+        <div class="field"><label>Maschinenstundensatz €/h</label><input id="setMachine" type="number" min="0" step="0.01"></div>
+        <div class="field"><label>Strompreis €/kWh</label><input id="setElectricity" type="number" min="0" step="0.01"></div>
+        <div class="field"><label>Druckerleistung W</label><input id="setWatts" type="number" min="0" step="1"></div>
+        <div class="field"><label>Standard Gewinnaufschlag %</label><input id="setMarkup" type="number" min="0" step="0.1"></div>
+      </div>
+      <div class="actions"><button class="btn primary" id="saveSettings">Einstellungen speichern</button><button class="btn danger" id="wipe">Alle lokalen Daten löschen</button></div>
+    </div>
+  </section>
+</main>
+</div>
+
+<script>
+(() => {
+const $=id=>document.getElementById(id);
+const euro=n=>new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR'}).format(Number.isFinite(n)?n:0);
+const num=(v,d=0)=>{const n=parseFloat(v);return Number.isFinite(n)?Math.max(d,n):d};
+let state={spools:[],orders:[],settings:{machine:1.5,electricity:.35,watts:250,markup:30}};
+
+function load(){try{const s=localStorage.getItem('3dcalc-desktop');if(s)state=JSON.parse(s)}catch(e){}}
+function save(){localStorage.setItem('3dcalc-desktop',JSON.stringify(state))}
+function fillSettings(){
+ $('machine').value=state.settings.machine;$('electricity').value=state.settings.electricity;$('watts').value=state.settings.watts;$('markup').value=state.settings.markup;
+ $('setMachine').value=state.settings.machine;$('setElectricity').value=state.settings.electricity;$('setWatts').value=state.settings.watts;$('setMarkup').value=state.settings.markup;
+}
+function renderFilaments(){
+ $('filamentSelect').innerHTML='<option value="">Direkteingabe</option>'+state.spools.map(s=>`<option value="${s.id}">${esc(s.brand)} – ${esc(s.name)} – ${esc(s.material)}</option>`).join('');
+}
+function renderSpools(){
+ const q=$('spoolSearch').value.toLowerCase();
+ const rows=state.spools.filter(s=>(s.brand+' '+s.name+' '+s.material).toLowerCase().includes(q));
+ $('spoolRows').innerHTML=rows.length?rows.map(s=>`<tr><td><span class="dot" style="background:${s.color}"></span></td><td><b>${esc(s.brand)}</b><br><span class="muted">${esc(s.name)}</span></td><td><span class="tag">${esc(s.material)}</span></td><td>${euro(s.price)}</td><td>${s.remain} g</td><td>${euro(s.price/s.weight*1000)}</td><td><button class="btn danger delSpool" data-id="${s.id}">Löschen</button></td></tr>`).join(''):'<tr><td colspan="7" class="empty">Noch keine Spulen angelegt.</td></tr>';
+}
+function renderOrders(){
+ const q=$('orderSearch').value.toLowerCase();
+ const rows=state.orders.filter(o=>o.name.toLowerCase().includes(q));
+ $('orderRows').innerHTML=rows.length?rows.map(o=>`<tr><td><b>${esc(o.name)}</b></td><td>${esc(o.date)}</td><td>${o.hours.toFixed(2)} h</td><td>${o.grams.toFixed(1)} g</td><td>${euro(o.cost)}</td><td>${euro(o.sell)}</td><td><button class="btn details" data-id="${o.id}">Details</button> <button class="btn danger delOrder" data-id="${o.id}">Löschen</button></td></tr>`).join(''):'<tr><td colspan="7" class="empty">Noch keine Aufträge gespeichert.</td></tr>';
+}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]))}
+
+function calculate(){
+ const h=num($('hours').value), g=num($('grams').value), p=num($('priceKg').value), w=num($('waste').value);
+ const g2=num($('grams2').value),p2=num($('priceKg2').value),g3=num($('grams3').value),p3=num($('priceKg3').value);
+ const material=(g*(1+w/100)*p/1000)+(g2*(1+w/100)*p2/1000)+(g3*(1+w/100)*p3/1000);
+ const machine=h*num($('machine').value), power=h*num($('watts').value)/1000*num($('electricity').value);
+ const cost=material+machine+power, sell=cost*(1+num($('markup').value)/100);
+ $('mFilament').textContent=euro(material);$('mMachine').textContent=euro(machine);$('mPower').textContent=euro(power);$('mCost').textContent=euro(cost);$('mSell').textContent=euro(sell);
+ $('bMaterial').textContent=euro(material);$('bMachine').textContent=euro(machine);$('bPower').textContent=euro(power);$('bProfit').textContent=euro(sell-cost);
+ return {h,g,g2,g3,cost,sell,material,machine,power};
+}
+$('calcBtn').addEventListener('click',calculate);
+['hours','grams','priceKg','waste','machine','electricity','watts','markup','grams2','priceKg2','grams3','priceKg3'].forEach(id=>$(id).addEventListener('input',calculate));
+$('filamentSelect').addEventListener('change',e=>{const s=state.spools.find(x=>x.id===e.target.value);if(s){$('priceKg').value=(s.price/s.weight*1000).toFixed(2);$('grams').focus();calculate()}});
+
+$('addSpool').addEventListener('click',()=>{
+ const brand=$('sBrand').value.trim(),name=$('sName').value.trim(),weight=num($('sWeight').value);
+ if(!brand||!name||weight<=0){alert('Bitte Hersteller, Filamentname und Gewicht eingeben.');return}
+ state.spools.push({id:crypto.randomUUID(),brand,name,material:$('sMaterial').value,color:$('sColor').value,price:num($('sPrice').value),weight,remain:num($('sRemain').value)});
+ save();renderFilaments();renderSpools();$('sBrand').value='';$('sName').value='';alert('Spule wurde gespeichert.');
+});
+$('spoolSearch').addEventListener('input',renderSpools);
+$('spoolRows').addEventListener('click',e=>{const b=e.target.closest('.delSpool');if(b){state.spools=state.spools.filter(s=>s.id!==b.dataset.id);save();renderFilaments();renderSpools()}});
+
+$('saveBtn').addEventListener('click',()=>{
+ const r=calculate(),name=$('jobName').value.trim()||'Unbenannter Auftrag';
+ state.orders.unshift({id:crypto.randomUUID(),name,date:new Date().toLocaleDateString('de-DE'),hours:r.h,grams:r.g+r.g2+r.g3,cost:r.cost,sell:r.sell,details:{...r}});
+ save();renderOrders();alert('Auftrag wurde gespeichert.');
+});
+$('orderSearch').addEventListener('input',renderOrders);
+$('orderRows').addEventListener('click',e=>{
+ const d=e.target.closest('.details'),x=e.target.closest('.delOrder');
+ if(d){const o=state.orders.find(v=>v.id===d.dataset.id);if(o)alert(`Details – ${o.name}\\n\\nDruckzeit: ${o.hours.toFixed(2)} h\\nMaterial: ${o.grams.toFixed(1)} g\\nMaterialkosten: ${euro(o.details.material)}\\nMaschinenkosten: ${euro(o.details.machine)}\\nStromkosten: ${euro(o.details.power)}\\nGesamtkosten: ${euro(o.cost)}\\nVerkaufspreis: ${euro(o.sell)}\\nGewinn: ${euro(o.sell-o.cost)}`)}
+ if(x){state.orders=state.orders.filter(o=>o.id!==x.dataset.id);save();renderOrders()}
+});
+$('saveSettings').addEventListener('click',()=>{
+ state.settings={machine:num($('setMachine').value),electricity:num($('setElectricity').value),watts:num($('setWatts').value),markup:num($('setMarkup').value)};
+ save();fillSettings();calculate();alert('Einstellungen gespeichert.');
+});
+$('wipe').addEventListener('click',()=>{if(confirm('Wirklich alle Spulen und Aufträge löschen?')){state.spools=[];state.orders=[];save();renderFilaments();renderSpools();renderOrders()}});
+
+document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',()=>{
+ document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');
+ document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));$(b.dataset.page).classList.add('active');
+ const titles={calculator:['Kalkulator','Druckkosten schnell und übersichtlich berechnen.'],spools:['Spulen','Deine Filamente verwalten und durchsuchen.'],orders:['Aufträge','Gespeicherte Kalkulationen und Details.'],settings:['Einstellungen','Standardwerte für deine Kalkulation.']};
+ $('pageTitle').textContent=titles[b.dataset.page][0];$('pageSub').textContent=titles[b.dataset.page][1];
+}));
+
+load();fillSettings();renderFilaments();renderSpools();renderOrders();calculate();
+})();
+</script>
+</body>
+</html>
