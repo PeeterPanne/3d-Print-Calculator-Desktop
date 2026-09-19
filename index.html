@@ -277,6 +277,37 @@ footer{text-align:center;padding:38px 20px;color:#6e6e73;border-top:1px solid #2
 @media(prefers-reduced-motion:reduce){.real-print{height:auto}.real-print-sticky{position:relative;height:auto;padding:80px 0}.rp-data-card,.rp-final{opacity:1;transform:none}.rp-timeline{display:none}}
 </style>
 
+
+<style id="v7-cost-build">
+.cost-build{height:430vh;background:#050607;color:#fff;position:relative;overflow:hidden}
+.cost-sticky{height:100vh;position:sticky;top:0;overflow:hidden}
+.cost-topline{position:absolute;left:5vw;right:5vw;top:4vh;display:flex;justify-content:space-between;font-size:9px;letter-spacing:.18em;color:#6e7781}
+.cost-topline b{font-weight:500;color:#a5adb5}
+.cost-intro{position:absolute;left:5vw;top:13vh;width:37vw;max-width:520px;z-index:3}
+.cost-intro small{font-size:9px;letter-spacing:.2em;color:#78818a}
+.cost-intro h2{font-size:clamp(50px,7vw,96px);line-height:.9;letter-spacing:-.06em;margin:16px 0}
+.cost-intro h2 span{color:#82c2ff}
+.cost-intro p{font-size:15px;line-height:1.45;color:#737c86;max-width:390px}
+.cost-board{position:absolute;right:6vw;top:10vh;width:min(560px,43vw);border:1px solid rgba(255,255,255,.09);border-radius:28px;background:linear-gradient(145deg,rgba(24,28,33,.96),rgba(7,9,11,.96));box-shadow:0 50px 120px rgba(0,0,0,.55);padding:20px;z-index:4}
+.cost-board-head{display:flex;justify-content:space-between;align-items:center;color:#7e8790;font-size:9px;letter-spacing:.16em;padding:4px 4px 16px}.cost-board-head i{width:6px;height:6px;border-radius:50%;background:#3fa7ff;box-shadow:0 0 14px #3fa7ff}
+.cost-row{display:grid;grid-template-columns:35px 1fr 25px;gap:8px;align-items:center;padding:14px 8px;border-top:1px solid rgba(255,255,255,.06);opacity:.08;transform:translateX(22px);transition:.45s ease}
+.cost-row.visible{opacity:1;transform:none}.cost-row.current{background:rgba(75,160,255,.07);border-radius:12px}
+.cost-row .num{font-size:9px;color:#5f6872}.cost-row strong{display:block;font-size:15px;font-weight:600;letter-spacing:-.02em}.cost-row small{display:block;font-size:10px;color:#68717b;margin-top:3px}.cost-row em{font-style:normal;color:#59636e;font-size:15px;text-align:right}
+.selfcost{margin-top:10px;padding:20px 10px 8px;border-top:1px solid rgba(255,255,255,.1)}.selfcost span{font-size:9px;letter-spacing:.16em;color:#7e8790}.selfcost strong{display:block;font-size:38px;letter-spacing:-.05em;margin-top:4px}.selfcost small{font-size:10px;color:#59636e}
+.markup-card{position:absolute;left:5vw;bottom:18vh;width:220px;padding:18px 20px;border:1px solid rgba(255,255,255,.08);border-radius:20px;background:rgba(18,21,25,.8);backdrop-filter:blur(18px);opacity:0;transform:translateY(25px);z-index:6}.markup-card span{font-size:9px;letter-spacing:.14em;color:#727b85}.markup-card strong{display:block;font-size:34px;margin:5px 0;letter-spacing:-.04em}.markup-card small{font-size:10px;color:#616a74;line-height:1.3}
+.sale-price{position:absolute;right:7vw;bottom:13vh;text-align:right;opacity:0;transform:translateY(35px) scale(.94);z-index:7}.sale-price small{display:block;font-size:9px;letter-spacing:.18em;color:#7d8791}.sale-price strong{display:block;font-size:clamp(68px,8vw,118px);line-height:.9;letter-spacing:-.07em;background:linear-gradient(90deg,#fff,#80c1ff);-webkit-background-clip:text;background-clip:text;color:transparent}.sale-price span{display:block;font-size:11px;color:#69727d;margin-top:8px}
+.cost-progress{position:absolute;left:5vw;right:5vw;bottom:5vh;height:1px;background:#20252a}.cost-progress i{display:block;width:0;height:2px;background:#fff;transform-origin:left}
+.cost-summary-light{min-height:75vh;background:#f5f5f7;color:#111;display:grid;place-items:center;padding:12vh 7vw}.cost-summary-inner{width:min(1100px,90vw)}.cost-summary-inner .eyebrow{font-size:9px;letter-spacing:.18em;color:#777}.cost-summary-inner h2{font-size:clamp(50px,7vw,90px);line-height:.92;letter-spacing:-.06em;margin:20px 0 70px}.cost-summary-inner h2 em{font-style:normal;color:#777}.summary-line{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.summary-line span{padding:12px 15px;background:#fff;border-radius:999px;font-size:12px;box-shadow:0 6px 25px rgba(0,0,0,.06)}.summary-line b{font-size:22px;color:#888}.summary-line strong{font-size:32px;letter-spacing:-.04em}
+@media(max-width:800px){
+ .cost-build{height:430vh}.cost-topline{top:3vh}.cost-intro{left:5vw;top:10vh;width:90vw}.cost-intro h2{font-size:clamp(44px,13vw,68px)}.cost-intro p{font-size:13px}
+ .cost-board{left:5vw;right:5vw;top:36vh;width:auto;padding:13px;border-radius:22px}.cost-row{padding:10px 5px;grid-template-columns:28px 1fr 20px}.cost-row strong{font-size:12px}.cost-row small{font-size:8px}.selfcost{padding-top:13px}.selfcost strong{font-size:30px}
+ .markup-card{left:5vw;bottom:15vh;width:175px;padding:14px}.markup-card strong{font-size:28px}.markup-card small{font-size:9px}
+ .sale-price{left:5vw;right:auto;bottom:5vh;text-align:left}.sale-price strong{font-size:57px}.sale-price span{font-size:9px}
+ .cost-progress{bottom:2.5vh}.cost-summary-light{padding:11vh 6vw}.cost-summary-inner h2{margin-bottom:45px}.summary-line{gap:7px}.summary-line span{font-size:10px;padding:9px 11px}.summary-line strong{font-size:27px}
+}
+@media(prefers-reduced-motion:reduce){.cost-build{height:auto}.cost-sticky{position:relative;height:auto;padding:90px 0}.cost-row,.markup-card,.sale-price{opacity:1;transform:none}}
+</style>
+
 </head>
 <body>
 <nav class="nav"><div class="navin"><a class="brand" href="#">3D Kalkulator</a><div class="links"><a href="#features">Funktionen</a><a href="#printer">3D Druck</a><a href="#material">Material</a><a href="#app">App</a><a href="app.html">Öffnen</a></div></div></nav>
@@ -421,44 +452,69 @@ footer{text-align:center;padding:38px 20px;color:#6e6e73;border-top:1px solid #2
 </section>
 
 
-<section class="real-print" id="print-film">
-  <div class="real-print-sticky">
-    <div class="rp-grid"></div>
-    <div class="rp-head">
-      <span class="rp-kicker">DEIN DRUCK. IN ECHTZEIT.</span>
-      <h2>Von der Idee<br><span>zum fertigen Teil.</span></h2>
+
+<section class="cost-build" id="kostenfilm">
+  <div class="cost-sticky">
+    <div class="cost-topline">
+      <span>VOM DRUCK ZUM PREIS</span>
+      <b>KOSTENAUFSTELLUNG</b>
     </div>
 
-    <div class="rp-printer">
-      <div class="rp-glow"></div>
-      <div class="rp-machine">
-        <div class="rp-top"></div>
-        <div class="rp-window"></div>
-        <div class="rp-bed"></div>
-        <div class="rp-gantry"></div>
-        <div class="rp-head-unit"><i></i></div>
-        <div class="rp-model">
-          <b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b>
-        </div>
+    <div class="cost-intro">
+      <small>DEIN 3D DRUCK</small>
+      <h2>Jetzt entsteht<br><span>dein Preis.</span></h2>
+      <p>Jede Position wird einzeln sichtbar. Nichts verschwindet in einer einzigen Zahl.</p>
+    </div>
+
+    <div class="cost-board">
+      <div class="cost-board-head">
+        <span>KALKULATION</span>
+        <i></i>
+      </div>
+      <div class="cost-rows">
+        <div class="cost-row" data-step="0"><span class="num">01</span><div><strong>Material</strong><small>Filament · Menge · €/kg</small></div><em>+</em></div>
+        <div class="cost-row" data-step="1"><span class="num">02</span><div><strong>Strom</strong><small>Druckzeit · Energieverbrauch</small></div><em>+</em></div>
+        <div class="cost-row" data-step="2"><span class="num">03</span><div><strong>Drucker-Abschreibung</strong><small>Maschine · Nutzungsdauer</small></div><em>+</em></div>
+        <div class="cost-row" data-step="3"><span class="num">04</span><div><strong>Verschleiß</strong><small>Düse · Bett · Wartung</small></div><em>+</em></div>
+        <div class="cost-row" data-step="4"><span class="num">05</span><div><strong>Druckerarbeit / Setup</strong><small>Einrichten · Überwachung</small></div><em>+</em></div>
+        <div class="cost-row" data-step="5"><span class="num">06</span><div><strong>Handarbeit</strong><small>Konstruktion · Nachbearbeitung</small></div><em>+</em></div>
+        <div class="cost-row" data-step="6"><span class="num">07</span><div><strong>Weitere Kosten</strong><small>Modelldatei · Lizenz · Sonstiges</small></div><em>+</em></div>
+      </div>
+
+      <div class="selfcost">
+        <span>SELBSTKOSTEN</span>
+        <strong>—</strong>
+        <small>Alle relevanten Kosten zusammengeführt</small>
       </div>
     </div>
 
-    <div class="rp-data">
-      <div class="rp-data-card d1"><small>MATERIAL</small><strong>163 g</strong><span>PLA · 17,30 €/kg</span></div>
-      <div class="rp-data-card d2"><small>DRUCKZEIT</small><strong>13 h 37 min</strong><span>Strom · Maschine · Verschleiß</span></div>
-      <div class="rp-data-card d3"><small>SELBSTKOSTEN</small><strong>17,79 €</strong><span>inkl. Arbeit &amp; Betriebskosten</span></div>
+    <div class="markup-card">
+      <span>AUFSCHLAG / RABATT</span>
+      <strong>+35 %</strong>
+      <small>Dein Preis wird aus der Kalkulation gebildet.</small>
     </div>
 
-    <div class="rp-final">
-      <span>DEIN VERKAUFSPREIS</span>
+    <div class="sale-price">
+      <small>VERKAUFSPREIS</small>
       <strong>24,90 €</strong>
-      <small>klar kalkuliert · nachvollziehbar · bereit zum Verkauf</small>
+      <span>fertig kalkuliert</span>
     </div>
 
-    <div class="rp-timeline"><i></i></div>
+    <div class="cost-progress"><i></i></div>
   </div>
 </section>
 
+
+
+<section class="cost-summary-light">
+  <div class="cost-summary-inner">
+    <span class="eyebrow">ALLES SICHTBAR</span>
+    <h2>Vom einzelnen Kostenpunkt<br><em>zur fertigen Zahl.</em></h2>
+    <div class="summary-line">
+      <span>Material</span><span>Strom</span><span>Maschine</span><span>Arbeit</span><span>Weitere Kosten</span><b>→</b><strong>24,90 €</strong>
+    </div>
+  </div>
+</section>
 <section class="price-reveal">
   <div class="price-inner">
     <span class="eyebrow">DER MOMENT, DER ZÄHLT</span>
@@ -587,6 +643,35 @@ addEventListener('scroll',()=>{if(!hero)return;const p=Math.min(scrollY/innerHei
    const q=clamp((p-.68)*3.2,0,1);
    final.style.opacity=q;final.style.transform=`translateY(${(1-q)*30}px)`;
    line.style.width=(p*100)+'%';
+ }
+ addEventListener('scroll',update,{passive:true});addEventListener('resize',update);update();
+})();
+</script>
+
+
+<script id="v7-cost-build-js">
+(function(){
+ const s=document.querySelector('.cost-build');if(!s)return;
+ const rows=[...s.querySelectorAll('.cost-row')], markup=s.querySelector('.markup-card'),
+ sale=s.querySelector('.sale-price'), progress=s.querySelector('.cost-progress i');
+ function clamp(v,a,b){return Math.max(a,Math.min(b,v))}
+ function update(){
+   const r=s.getBoundingClientRect(), p=clamp(-r.top/Math.max(1,r.height-innerHeight),0,1);
+   // Seven cost items build up one after another instead of leaving a long black gap.
+   const active=Math.min(7,Math.floor(p*8.2));
+   rows.forEach((row,i)=>{
+     row.classList.toggle('visible',i<active);
+     row.classList.toggle('current',i===active-1);
+   });
+   // Let the self-cost figure emerge once the cost stack is complete.
+   const self=s.querySelector('.selfcost strong');
+   const selfP=clamp((p-.72)*5,0,1);
+   self.textContent=selfP<.95?'—':'berechnet';
+   const m=clamp((p-.77)*5,0,1);
+   markup.style.opacity=m;markup.style.transform=`translateY(${(1-m)*25}px)`;
+   const q=clamp((p-.86)*7,0,1);
+   sale.style.opacity=q;sale.style.transform=`translateY(${(1-q)*35}px) scale(${.94+q*.06})`;
+   progress.style.width=(p*100)+'%';
  }
  addEventListener('scroll',update,{passive:true});addEventListener('resize',update);update();
 })();
