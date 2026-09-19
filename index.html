@@ -235,6 +235,48 @@ footer{text-align:center;padding:38px 20px;color:#6e6e73;border-top:1px solid #2
 @media(prefers-reduced-motion:reduce){.product-film{height:auto}.film-sticky{position:relative;height:auto;padding:80px 0}.film-spool,.film-printer,.film-result{opacity:1;transform:none}.film-step{opacity:1;transform:none}}
 </style>
 
+
+<style id="v6-real-print">
+.real-print{height:340vh;background:#030405;color:#fff;position:relative;overflow:hidden}
+.real-print-sticky{height:100vh;position:sticky;top:0;overflow:hidden}
+.rp-grid{position:absolute;inset:-30%;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:55px 55px;transform:perspective(600px) rotateX(62deg) translateY(18%);transform-origin:center bottom;opacity:.35}
+.rp-head{position:absolute;left:6vw;top:12vh;z-index:5}
+.rp-kicker{font-size:10px;letter-spacing:.2em;opacity:.5}
+.rp-head h2{font-size:clamp(52px,7.5vw,110px);line-height:.9;letter-spacing:-.06em;margin:18px 0}
+.rp-head h2 span{color:#8fc9ff}
+.rp-printer{position:absolute;left:50%;top:48%;width:min(720px,65vw);height:min(520px,55vh);transform:translate(-50%,-50%);z-index:2}
+.rp-machine{position:absolute;inset:8% 5%;border:1px solid #343a42;border-radius:34px;background:linear-gradient(145deg,#15191e,#060708 68%);box-shadow:0 60px 130px rgba(0,0,0,.65),inset 0 0 80px #000}
+.rp-top{position:absolute;left:8%;right:8%;top:7%;height:9%;border-radius:13px;background:linear-gradient(#303740,#171b20);box-shadow:inset 0 1px #5c6670}
+.rp-window{position:absolute;left:13%;right:13%;top:19%;height:52%;border:1px solid #242a31;border-radius:18px;background:linear-gradient(135deg,rgba(70,90,110,.12),rgba(0,0,0,.45));overflow:hidden}
+.rp-bed{position:absolute;left:16%;right:16%;bottom:16%;height:9%;border-radius:8px;background:linear-gradient(#56616c,#20262c);transform:perspective(400px) rotateX(48deg);box-shadow:0 10px 20px rgba(0,0,0,.5)}
+.rp-gantry{position:absolute;left:18%;right:18%;top:23%;height:4px;background:#606a74}
+.rp-head-unit{position:absolute;left:50%;top:22%;width:58px;height:70px;transform:translateX(-50%);background:linear-gradient(145deg,#69737e,#252b32);border-radius:8px 8px 14px 14px;z-index:4;box-shadow:0 10px 18px rgba(0,0,0,.5)}
+.rp-head-unit i{position:absolute;left:50%;bottom:-16px;width:8px;height:19px;background:linear-gradient(#e9f0f6,#ffbd55);transform:translateX(-50%);border-radius:0 0 6px 6px}
+.rp-model{position:absolute;left:31%;right:31%;bottom:25%;height:29%;z-index:3;display:flex;align-items:flex-end;justify-content:center;gap:4px}
+.rp-model b{width:12%;height:var(--h,20%);background:linear-gradient(90deg,#0676e8,#bfe6ff,#0676e8);border-radius:3px 3px 0 0;box-shadow:0 0 12px rgba(0,145,255,.7)}
+.rp-model b:nth-child(1){--h:28%}.rp-model b:nth-child(2){--h:43%}.rp-model b:nth-child(3){--h:58%}.rp-model b:nth-child(4){--h:76%}.rp-model b:nth-child(5){--h:88%}.rp-model b:nth-child(6){--h:68%}.rp-model b:nth-child(7){--h:50%}.rp-model b:nth-child(8){--h:35%}
+.rp-glow{position:absolute;inset:25% -10% -5%;background:radial-gradient(ellipse,rgba(0,140,255,.28),transparent 63%);filter:blur(28px)}
+.rp-data{position:absolute;right:5vw;top:24%;width:260px;z-index:6}
+.rp-data-card{padding:17px 18px;border-radius:18px;background:rgba(17,20,24,.75);border:1px solid rgba(255,255,255,.09);backdrop-filter:blur(20px);margin-bottom:12px;opacity:0;transform:translateX(35px)}
+.rp-data-card small{display:block;font-size:9px;letter-spacing:.16em;color:#87909b}.rp-data-card strong{display:block;font-size:27px;letter-spacing:-.04em;margin:4px 0}.rp-data-card span{font-size:11px;color:#727b86}
+.rp-final{position:absolute;right:6vw;bottom:12vh;z-index:8;opacity:0;transform:translateY(30px)}
+.rp-final span{display:block;font-size:10px;letter-spacing:.18em;color:#7f8892}.rp-final strong{display:block;font-size:clamp(60px,7vw,100px);letter-spacing:-.065em;line-height:.9;background:linear-gradient(90deg,#fff,#7ebeff);-webkit-background-clip:text;background-clip:text;color:transparent}.rp-final small{display:block;color:#707984;font-size:12px;margin-top:10px}
+.rp-timeline{position:absolute;left:6vw;right:6vw;bottom:7vh;height:1px;background:#20252b;z-index:10}.rp-timeline i{display:block;height:2px;width:0;background:#fff;transform-origin:left}
+.price-reveal{min-height:90vh;background:#f5f5f7;color:#111;display:grid;place-items:center;text-align:center;padding:15vh 8vw}
+.price-inner{max-width:900px}.price-inner .eyebrow{font-size:10px;letter-spacing:.18em;color:#777}.price-inner h2{font-size:clamp(52px,7vw,100px);line-height:.92;letter-spacing:-.06em;margin:20px 0}.price-inner h2 em{font-style:normal;color:#777}.price-inner p{font-size:19px;line-height:1.45;color:#70757c;max-width:650px;margin:0 auto 35px}.price-pills{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}.price-pills span{padding:10px 15px;border-radius:999px;background:#fff;box-shadow:0 5px 20px rgba(0,0,0,.06);font-size:12px}
+@media(max-width:800px){
+ .real-print{height:300vh}.rp-head{left:5vw;top:9vh}.rp-head h2{font-size:clamp(46px,13vw,72px)}
+ .rp-printer{width:108vw;height:48vh;top:48%;left:48%}.rp-machine{inset:8% 4%;border-radius:26px}
+ .rp-data{left:5vw;right:5vw;top:auto;bottom:13vh;width:auto;display:flex;gap:8px}
+ .rp-data-card{flex:1;margin:0;padding:12px;min-width:0}.rp-data-card strong{font-size:20px}.rp-data-card span{display:none}
+ .rp-data-card small{font-size:8px}
+ .rp-final{left:5vw;right:auto;bottom:5vh}.rp-final strong{font-size:58px}.rp-final small{display:none}
+ .rp-timeline{left:5vw;right:5vw;bottom:3vh}
+ .price-reveal{padding:13vh 7vw}.price-inner p{font-size:16px}
+}
+@media(prefers-reduced-motion:reduce){.real-print{height:auto}.real-print-sticky{position:relative;height:auto;padding:80px 0}.rp-data-card,.rp-final{opacity:1;transform:none}.rp-timeline{display:none}}
+</style>
+
 </head>
 <body>
 <nav class="nav"><div class="navin"><a class="brand" href="#">3D Kalkulator</a><div class="links"><a href="#features">Funktionen</a><a href="#printer">3D Druck</a><a href="#material">Material</a><a href="#app">App</a><a href="app.html">Öffnen</a></div></div></nav>
@@ -378,6 +420,54 @@ footer{text-align:center;padding:38px 20px;color:#6e6e73;border-top:1px solid #2
   </div>
 </section>
 
+
+<section class="real-print" id="print-film">
+  <div class="real-print-sticky">
+    <div class="rp-grid"></div>
+    <div class="rp-head">
+      <span class="rp-kicker">DEIN DRUCK. IN ECHTZEIT.</span>
+      <h2>Von der Idee<br><span>zum fertigen Teil.</span></h2>
+    </div>
+
+    <div class="rp-printer">
+      <div class="rp-glow"></div>
+      <div class="rp-machine">
+        <div class="rp-top"></div>
+        <div class="rp-window"></div>
+        <div class="rp-bed"></div>
+        <div class="rp-gantry"></div>
+        <div class="rp-head-unit"><i></i></div>
+        <div class="rp-model">
+          <b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b>
+        </div>
+      </div>
+    </div>
+
+    <div class="rp-data">
+      <div class="rp-data-card d1"><small>MATERIAL</small><strong>163 g</strong><span>PLA · 17,30 €/kg</span></div>
+      <div class="rp-data-card d2"><small>DRUCKZEIT</small><strong>13 h 37 min</strong><span>Strom · Maschine · Verschleiß</span></div>
+      <div class="rp-data-card d3"><small>SELBSTKOSTEN</small><strong>17,79 €</strong><span>inkl. Arbeit &amp; Betriebskosten</span></div>
+    </div>
+
+    <div class="rp-final">
+      <span>DEIN VERKAUFSPREIS</span>
+      <strong>24,90 €</strong>
+      <small>klar kalkuliert · nachvollziehbar · bereit zum Verkauf</small>
+    </div>
+
+    <div class="rp-timeline"><i></i></div>
+  </div>
+</section>
+
+<section class="price-reveal">
+  <div class="price-inner">
+    <span class="eyebrow">DER MOMENT, DER ZÄHLT</span>
+    <h2>Keine Schätzung.<br><em>Eine Kalkulation.</em></h2>
+    <p>Alle relevanten Kosten an einem Ort – damit du deinen Preis nicht mehr aus dem Bauch heraus festlegst.</p>
+    <div class="price-pills"><span>Material</span><span>Strom</span><span>Maschine</span><span>Arbeit</span><span>Aufschlag</span></div>
+  </div>
+</section>
+
 <section class="final-cta">
   <div class="cta-orb"></div>
   <div class="final-inner reveal">
@@ -472,6 +562,33 @@ addEventListener('scroll',()=>{if(!hero)return;const p=Math.min(scrollY/innerHei
     });
   },{threshold:.45});
   counters.forEach(c=>obs.observe(c));
+})();
+</script>
+
+
+<script id="v6-real-print-js">
+(function(){
+ const s=document.querySelector('.real-print'); if(!s)return;
+ const cards=[...s.querySelectorAll('.rp-data-card')], final=s.querySelector('.rp-final'),
+       model=[...s.querySelectorAll('.rp-model b')], head=s.querySelector('.rp-head-unit'),
+       line=s.querySelector('.rp-timeline i'), printer=s.querySelector('.rp-printer');
+ const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+ function update(){
+   const r=s.getBoundingClientRect(), p=clamp(-r.top/Math.max(1,r.height-innerHeight),0,1);
+   // Build the print layer by layer.
+   model.forEach((b,i)=>{b.style.transform=`scaleY(${clamp((p-.16-i*.035)*7,0,1)})`;b.style.transformOrigin='bottom'});
+   const travel=(p*170-85);
+   head.style.transform=`translateX(calc(-50% + ${travel}px))`;
+   printer.style.transform=`translate(-50%,-50%) translateY(${Math.sin(p*Math.PI)*-12}px)`;
+   cards.forEach((c,i)=>{
+     const a=clamp((p-(.25+i*.16))*5,0,1);
+     c.style.opacity=a;c.style.transform=`translateX(${(1-a)*35}px)`;
+   });
+   const q=clamp((p-.68)*3.2,0,1);
+   final.style.opacity=q;final.style.transform=`translateY(${(1-q)*30}px)`;
+   line.style.width=(p*100)+'%';
+ }
+ addEventListener('scroll',update,{passive:true});addEventListener('resize',update);update();
 })();
 </script>
 
