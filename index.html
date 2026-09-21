@@ -370,7 +370,24 @@ footer{text-align:center;padding:38px 20px;color:#6e6e73;border-top:1px solid #2
   .price-story-sticky:after{height:8vh}
 }
 </style>
-</head>
+<style id="v11-fit-calculation">
+.ps-calculation{top:50%;transform:translateY(-50%);width:min(540px,44vw);max-height:78vh;padding:14px 16px;box-sizing:border-box;overflow:visible}
+.ps-head{padding:2px 4px 8px}
+.ps-item{padding:8px 5px;min-height:45px;box-sizing:border-box}
+.ps-item b{font-size:13px}.ps-item small{font-size:8px;margin-top:1px}.ps-item>strong{font-size:11px}
+.ps-self{margin-top:5px;padding:10px 5px 0}.ps-self strong{font-size:30px}
+.price-story{height:205vh}.price-story-sticky{overflow:visible}
+@media(max-width:800px){
+.price-story{height:225vh}
+.ps-calculation{top:50%;left:4vw;right:4vw;width:auto;max-height:61vh;padding:10px 11px;border-radius:19px}
+.ps-head{padding:1px 3px 5px;font-size:8px}
+.ps-item{grid-template-columns:21px 1fr auto;min-height:0;padding:5px 3px;gap:6px}
+.ps-item b{font-size:10px}.ps-item small{font-size:6.5px}.ps-item>strong{font-size:8px}.ps-item>span{font-size:7px}
+.ps-self{padding-top:7px}.ps-self span{font-size:7px}.ps-self strong{font-size:24px}
+.ps-title{top:7vh}.ps-title h2{font-size:clamp(42px,12vw,64px)}
+.ps-running{bottom:9vh}.ps-markup{bottom:4.5vh}.ps-sale{bottom:4.5vh}
+}
+</style></head>
 <body>
 <nav class="nav"><div class="navin"><a class="brand" href="#">3D Kalkulator</a><div class="links"><a href="#features">Funktionen</a><a href="#printer">3D Druck</a><a href="#material">Material</a><a href="#app">App</a><a href="app.html">Öffnen</a></div></div></nav>
 
@@ -744,6 +761,6 @@ addEventListener('scroll',()=>{if(!hero)return;const p=Math.min(scrollY/innerHei
 })();
 </script>
 
-<script id="v9-price-story-js">(function(){const s=document.querySelector(".price-story");if(!s)return;const items=[...s.querySelectorAll(".ps-item")],run=s.querySelector(".ps-running strong"),self=s.querySelector(".ps-self strong"),markup=s.querySelector(".ps-markup"),sale=s.querySelector(".ps-sale"),bar=s.querySelector(".ps-progress i");const values=items.map(x=>Number(x.dataset.value));const fmt=n=>n.toLocaleString("de-DE",{minimumFractionDigits:2,maximumFractionDigits:2})+" €";const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));function update(){const r=s.getBoundingClientRect(),p=clamp(-r.top/Math.max(1,r.height-innerHeight),0,1),build=clamp(p/.72,0,1),raw=build*7,full=Math.min(7,Math.floor(raw)),frac=clamp(raw-full,0,1);let sum=values.slice(0,full).reduce((a,b)=>a+b,0);if(full<7)sum+=values[full]*frac;items.forEach((el,i)=>{el.classList.toggle("visible",i<full||(i===full&&frac>.06));el.classList.toggle("current",i===full&&frac<.96)});run.textContent=fmt(sum);self.textContent=fmt(full>=7?17.79:sum);const mp=clamp((p-.72)/.10,0,1);markup.style.opacity=mp;markup.style.transform="translateY("+(1-mp)*15+"px)";const sp=clamp((p-.82)/.18,0,1);sale.style.opacity=sp;sale.style.transform="translateY("+(1-sp)*28+"px) scale("+(0.94+.06*sp)+")";bar.style.width=p*100+"%"}addEventListener("scroll",update,{passive:true});addEventListener("resize",update);update()})();</script>
+<script id="v9-price-story-js">(function(){const s=document.querySelector(".price-story");if(!s)return;const items=[...s.querySelectorAll(".ps-item")],run=s.querySelector(".ps-running strong"),self=s.querySelector(".ps-self strong"),markup=s.querySelector(".ps-markup"),sale=s.querySelector(".ps-sale"),bar=s.querySelector(".ps-progress i");const values=items.map(x=>Number(x.dataset.value));const fmt=n=>n.toLocaleString("de-DE",{minimumFractionDigits:2,maximumFractionDigits:2})+" €";const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));function update(){const r=s.getBoundingClientRect(),p=clamp(-r.top/Math.max(1,r.height-innerHeight),0,1),build=clamp(p/.70,0,1),raw=build*7,full=Math.min(7,Math.floor(raw)),frac=clamp(raw-full,0,1);let sum=values.slice(0,full).reduce((a,b)=>a+b,0);if(full<7)sum+=values[full]*frac;items.forEach((el,i)=>{el.classList.toggle("visible",i<full||(i===full&&frac>.06));el.classList.toggle("current",i===full&&frac<.96)});run.textContent=fmt(sum);self.textContent=fmt(full>=7?17.79:sum);const mp=clamp((p-.70)/.10,0,1);markup.style.opacity=mp;markup.style.transform="translateY("+(1-mp)*15+"px)";const sp=clamp((p-.80)/.20,0,1);sale.style.opacity=sp;sale.style.transform="translateY("+(1-sp)*28+"px) scale("+(0.94+.06*sp)+")";bar.style.width=p*100+"%"}addEventListener("scroll",update,{passive:true});addEventListener("resize",update);update()})();</script>
 </body>
 </html>
