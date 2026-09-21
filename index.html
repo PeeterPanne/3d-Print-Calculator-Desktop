@@ -343,6 +343,20 @@ footer{text-align:center;padding:38px 20px;color:#6e6e73;border-top:1px solid #2
 @media(prefers-reduced-motion:reduce){.cost-build-v8{height:auto}.cost-v8-sticky{position:relative;height:auto;padding:100px 0}.v8-row,.v8-side-total,.v8-markup,.v8-final{opacity:1;transform:none}}
 </style>
 
+<style id="v9-price-story">
+.price-story{height:315vh;background:#050607;color:#fff;position:relative;overflow:hidden}.price-story-sticky{position:sticky;top:0;height:100vh;min-height:620px;overflow:hidden}
+.ps-top{position:absolute;left:5vw;right:5vw;top:3.5vh;display:flex;justify-content:space-between;color:#6c7680;font-size:9px;letter-spacing:.18em;z-index:10}.ps-top b{font-weight:500;color:#a6afb8}
+.ps-title{position:absolute;left:5vw;top:14vh;width:34vw;max-width:480px;z-index:4}.ps-title small{font-size:9px;letter-spacing:.2em;color:#78828c}.ps-title h2{font-size:clamp(50px,7vw,96px);line-height:.9;letter-spacing:-.06em;margin:16px 0}.ps-title h2 span{color:#84c4ff}.ps-title p{font-size:14px;line-height:1.45;color:#737d87;max-width:330px}
+.ps-calculation{position:absolute;right:5vw;top:8vh;width:min(570px,46vw);padding:19px;border-radius:27px;background:linear-gradient(145deg,#191d22,#07090b);border:1px solid rgba(255,255,255,.1);box-shadow:0 45px 110px rgba(0,0,0,.6);z-index:5}.ps-head{display:flex;justify-content:space-between;padding:4px 5px 13px;color:#7b858f;font-size:9px;letter-spacing:.17em}.ps-head i{width:6px;height:6px;border-radius:50%;background:#3da6ff;box-shadow:0 0 15px #3da6ff}
+.ps-item{display:grid;grid-template-columns:29px 1fr auto;gap:9px;align-items:center;padding:11px 6px;border-top:1px solid rgba(255,255,255,.065);opacity:0;transform:translateY(16px);transition:opacity .35s,transform .45s,background .35s}.ps-item.visible{opacity:1;transform:none}.ps-item.current{background:rgba(55,150,255,.08);border-radius:11px}.ps-item>span{font-size:9px;color:#606a74}.ps-item b{display:block;font-size:14px}.ps-item small{display:block;color:#68727d;font-size:9px;margin-top:2px}.ps-item>strong{font-size:12px;color:#a8d6ff;white-space:nowrap}
+.ps-self{border-top:1px solid rgba(255,255,255,.14);margin-top:7px;padding:15px 6px 1px;display:flex;align-items:end;justify-content:space-between}.ps-self span{font-size:9px;letter-spacing:.16em;color:#7d8791}.ps-self strong{font-size:35px;letter-spacing:-.05em}
+.ps-running{position:absolute;left:5vw;bottom:19vh;width:225px;padding:17px 19px;border:1px solid rgba(255,255,255,.08);border-radius:19px;background:rgba(15,18,22,.76);backdrop-filter:blur(18px);z-index:6}.ps-running small{font-size:8px;letter-spacing:.16em;color:#737d87}.ps-running strong{display:block;font-size:37px;letter-spacing:-.05em;margin:4px 0}.ps-running span{font-size:9px;color:#606a74}
+.ps-markup{position:absolute;left:5vw;bottom:8vh;padding:12px 16px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.05);border-radius:15px;z-index:7;opacity:0;transform:translateY(15px)}.ps-markup small{font-size:8px;letter-spacing:.15em;color:#79838d}.ps-markup strong{font-size:25px;margin-left:9px}.ps-markup span{font-size:9px;color:#616b75;margin-left:7px}
+.ps-sale{position:absolute;right:6vw;bottom:8vh;text-align:right;z-index:8;opacity:0;transform:translateY(28px) scale(.94)}.ps-sale small{display:block;font-size:9px;letter-spacing:.18em;color:#7c8791}.ps-sale strong{display:block;font-size:clamp(64px,8vw,118px);line-height:.88;letter-spacing:-.07em;background:linear-gradient(90deg,#fff,#82c4ff);-webkit-background-clip:text;background-clip:text;color:transparent}.ps-sale span{font-size:10px;color:#69737d}
+.ps-progress{position:absolute;left:5vw;right:5vw;bottom:3.5vh;height:1px;background:#20252a;z-index:10}.ps-progress i{display:block;height:2px;width:0;background:#fff;transform-origin:left}
+@media(max-width:800px){.price-story{height:330vh}.ps-title{left:5vw;top:9vh;width:90vw}.ps-title h2{font-size:clamp(45px,13vw,70px)}.ps-title p{font-size:12px}.ps-calculation{left:5vw;right:5vw;top:31vh;width:auto;padding:12px;border-radius:21px}.ps-item{grid-template-columns:24px 1fr auto;padding:8px 4px}.ps-item b{font-size:11px}.ps-item small{font-size:7px}.ps-item>strong{font-size:9px}.ps-self{padding-top:11px}.ps-self strong{font-size:28px}.ps-running{left:5vw;bottom:12vh;width:165px;padding:12px 14px}.ps-running strong{font-size:27px}.ps-running span{font-size:8px}.ps-markup{left:5vw;bottom:5.5vh;padding:8px 11px}.ps-markup strong{font-size:20px}.ps-markup span{display:none}.ps-sale{left:5vw;right:auto;bottom:5.5vh;text-align:left}.ps-sale strong{font-size:57px}.ps-sale span{display:none}.ps-progress{bottom:2.5vh}}
+@media(prefers-reduced-motion:reduce){.price-story{height:auto}.price-story-sticky{position:relative;height:auto;padding:100px 0}.ps-item,.ps-markup,.ps-sale{opacity:1;transform:none}}
+</style>
 </head>
 <body>
 <nav class="nav"><div class="navin"><a class="brand" href="#">3D Kalkulator</a><div class="links"><a href="#features">Funktionen</a><a href="#printer">3D Druck</a><a href="#material">Material</a><a href="#app">App</a><a href="app.html">Öffnen</a></div></div></nav>
@@ -478,10 +492,10 @@ footer{text-align:center;padding:38px 20px;color:#6e6e73;border-top:1px solid #2
       <h2>Deine Druckdaten.<br><em>Deine Kontrolle.</em></h2>
     </div>
     <div class="numbers-grid">
-      <div class="number-card reveal"><strong data-count="50">0</strong><span>Filamente verwalten</span></div>
-      <div class="number-card reveal"><strong data-count="13.62">0</strong><span>Stunden präzise kalkulieren</span></div>
-      <div class="number-card reveal"><strong data-count="4">0</strong><span>Kostenbereiche im Blick</span></div>
-      <div class="number-card reveal"><strong data-count="1">0</strong><span>klarer Verkaufspreis</span></div>
+      <div class="number-card reveal"><strong data-count="50">50</strong><span>Filamente verwalten</span></div>
+      <div class="number-card reveal"><strong data-count="13.62">13,62</strong><span>Stunden präzise kalkulieren</span></div>
+      <div class="number-card reveal"><strong data-count="4">4</strong><span>Kostenbereiche im Blick</span></div>
+      <div class="number-card reveal"><strong data-count="1">1</strong><span>klarer Verkaufspreis</span></div>
     </div>
   </div>
 </section>
@@ -489,49 +503,24 @@ footer{text-align:center;padding:38px 20px;color:#6e6e73;border-top:1px solid #2
 
 
 
-<section class="cost-build-v8" id="kostenfilm">
-  <div class="cost-v8-sticky">
-    <div class="v8-bg-glow"></div>
-    <div class="v8-top"><span>VOM DRUCK ZUM PREIS</span><b>KOSTENAUFSTELLUNG</b></div>
-
-    <div class="v8-copy">
-      <small>DEIN 3D DRUCK</small>
-      <h2>Jetzt entsteht<br><span>dein Preis.</span></h2>
-      <p>Beim Scrollen wächst deine Kalkulation sichtbar – Position für Position.</p>
-    </div>
-
-    <div class="v8-calc">
-      <div class="v8-calc-head"><span>KALKULATION</span><i></i></div>
-      <div class="v8-list">
-        <div class="v8-row"><span>01</span><div><b>Material</b><small>Filament · Menge · €/kg</small></div><strong>+ 2,82 €</strong></div>
-        <div class="v8-row"><span>02</span><div><b>Strom</b><small>Druckzeit · Energieverbrauch</small></div><strong>+ 0,65 €</strong></div>
-        <div class="v8-row"><span>03</span><div><b>Drucker-Abschreibung</b><small>Maschine · Nutzungsdauer</small></div><strong>+ 1,63 €</strong></div>
-        <div class="v8-row"><span>04</span><div><b>Verschleiß</b><small>Düse · Bett · Wartung</small></div><strong>+ 0,88 €</strong></div>
-        <div class="v8-row"><span>05</span><div><b>Druckerarbeit / Setup</b><small>Einrichten · Überwachung</small></div><strong>+ 3,22 €</strong></div>
-        <div class="v8-row"><span>06</span><div><b>Handarbeit</b><small>Konstruktion · Nachbearbeitung</small></div><strong>+ 4,10 €</strong></div>
-        <div class="v8-row"><span>07</span><div><b>Weitere Kosten</b><small>Lizenz · Sonstiges · Betrieb</small></div><strong>+ 4,49 €</strong></div>
-      </div>
-      <div class="v8-total"><span>SELBSTKOSTEN</span><strong>17,79 €</strong></div>
-    </div>
-
-    <div class="v8-side-total">
-      <span>ZWISCHENSUMME</span>
-      <strong class="v8-running">2,82 €</strong>
-      <small>Die Summe wächst mit jedem Kostenpunkt.</small>
-    </div>
-
-    <div class="v8-markup"><span>AUFSCHLAG</span><strong>+35 %</strong><small>auf die Selbstkosten</small></div>
-
-    <div class="v8-final">
-      <small>VERKAUFSPREIS</small>
-      <strong>24,90 €</strong>
-      <span>fertig kalkuliert</span>
-    </div>
-
-    <div class="v8-progress"><i></i></div>
-    <div class="v8-step"><b>01</b><span>Material</span></div>
-  </div>
-</section>
+<section class="price-story" id="kostenfilm">
+<div class="price-story-sticky">
+<div class="ps-top"><span>VOM DRUCK ZUM PREIS</span><b>KOSTENAUFSTELLUNG</b></div>
+<div class="ps-title"><small>DEIN 3D DRUCK</small><h2>Jetzt entsteht<br><span>dein Preis.</span></h2><p>Jede Position kommt dazu. Die Summe wächst sichtbar mit.</p></div>
+<div class="ps-calculation"><div class="ps-head"><span>KALKULATION</span><i></i></div><div class="ps-items">
+<div class="ps-item" data-value="2.82"><span>01</span><div><b>Material</b><small>Filament · Menge · €/kg</small></div><strong>+ 2,82 €</strong></div>
+<div class="ps-item" data-value="0.65"><span>02</span><div><b>Strom</b><small>Druckzeit · Energieverbrauch</small></div><strong>+ 0,65 €</strong></div>
+<div class="ps-item" data-value="1.63"><span>03</span><div><b>Drucker-Abschreibung</b><small>Maschine · Nutzungsdauer</small></div><strong>+ 1,63 €</strong></div>
+<div class="ps-item" data-value="0.88"><span>04</span><div><b>Verschleiß</b><small>Düse · Bett · Wartung</small></div><strong>+ 0,88 €</strong></div>
+<div class="ps-item" data-value="3.22"><span>05</span><div><b>Druckerarbeit / Setup</b><small>Einrichten · Überwachung</small></div><strong>+ 3,22 €</strong></div>
+<div class="ps-item" data-value="4.10"><span>06</span><div><b>Handarbeit</b><small>Konstruktion · Nachbearbeitung</small></div><strong>+ 4,10 €</strong></div>
+<div class="ps-item" data-value="4.49"><span>07</span><div><b>Weitere Kosten</b><small>Lizenz · Sonstiges · Betrieb</small></div><strong>+ 4,49 €</strong></div>
+</div><div class="ps-self"><span>SELBSTKOSTEN</span><strong>0,00 €</strong></div></div>
+<div class="ps-running"><small>AKTUELLER STAND</small><strong>0,00 €</strong><span>Die Kalkulation baut sich auf.</span></div>
+<div class="ps-markup"><small>AUFSCHLAG</small><strong>+35 %</strong><span>auf die Selbstkosten</span></div>
+<div class="ps-sale"><small>VERKAUFSPREIS</small><strong>24,90 €</strong><span>fertig kalkuliert</span></div>
+<div class="ps-progress"><i></i></div>
+</div></section>
 
 
 
@@ -742,5 +731,6 @@ addEventListener('scroll',()=>{if(!hero)return;const p=Math.min(scrollY/innerHei
 })();
 </script>
 
+<script id="v9-price-story-js">(function(){const s=document.querySelector(".price-story");if(!s)return;const items=[...s.querySelectorAll(".ps-item")],run=s.querySelector(".ps-running strong"),self=s.querySelector(".ps-self strong"),markup=s.querySelector(".ps-markup"),sale=s.querySelector(".ps-sale"),bar=s.querySelector(".ps-progress i");const values=items.map(x=>Number(x.dataset.value));const fmt=n=>n.toLocaleString("de-DE",{minimumFractionDigits:2,maximumFractionDigits:2})+" €";const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));function update(){const r=s.getBoundingClientRect(),p=clamp(-r.top/Math.max(1,r.height-innerHeight),0,1),build=clamp(p/.78,0,1),raw=build*7,full=Math.min(7,Math.floor(raw)),frac=clamp(raw-full,0,1);let sum=values.slice(0,full).reduce((a,b)=>a+b,0);if(full<7)sum+=values[full]*frac;items.forEach((el,i)=>{el.classList.toggle("visible",i<full||(i===full&&frac>.06));el.classList.toggle("current",i===full&&frac<.96)});run.textContent=fmt(sum);self.textContent=fmt(full>=7?17.79:sum);const mp=clamp((p-.78)/.09,0,1);markup.style.opacity=mp;markup.style.transform="translateY("+(1-mp)*15+"px)";const sp=clamp((p-.88)/.12,0,1);sale.style.opacity=sp;sale.style.transform="translateY("+(1-sp)*28+"px) scale("+(0.94+.06*sp)+")";bar.style.width=p*100+"%"}addEventListener("scroll",update,{passive:true});addEventListener("resize",update);update()})();</script>
 </body>
 </html>
