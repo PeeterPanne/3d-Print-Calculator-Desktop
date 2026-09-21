@@ -344,7 +344,7 @@ footer{text-align:center;padding:38px 20px;color:#6e6e73;border-top:1px solid #2
 </style>
 
 <style id="v9-price-story">
-.price-story{height:315vh;background:#050607;color:#fff;position:relative;overflow:hidden}.price-story-sticky{position:sticky;top:0;height:100vh;min-height:620px;overflow:hidden}
+.price-story{height:185vh;background:#050607;color:#fff;position:relative;overflow:hidden}.price-story-sticky{position:sticky;top:0;height:100vh;min-height:620px;overflow:hidden}
 .ps-top{position:absolute;left:5vw;right:5vw;top:3.5vh;display:flex;justify-content:space-between;color:#6c7680;font-size:9px;letter-spacing:.18em;z-index:10}.ps-top b{font-weight:500;color:#a6afb8}
 .ps-title{position:absolute;left:5vw;top:14vh;width:34vw;max-width:480px;z-index:4}.ps-title small{font-size:9px;letter-spacing:.2em;color:#78828c}.ps-title h2{font-size:clamp(50px,7vw,96px);line-height:.9;letter-spacing:-.06em;margin:16px 0}.ps-title h2 span{color:#84c4ff}.ps-title p{font-size:14px;line-height:1.45;color:#737d87;max-width:330px}
 .ps-calculation{position:absolute;right:5vw;top:8vh;width:min(570px,46vw);padding:19px;border-radius:27px;background:linear-gradient(145deg,#191d22,#07090b);border:1px solid rgba(255,255,255,.1);box-shadow:0 45px 110px rgba(0,0,0,.6);z-index:5}.ps-head{display:flex;justify-content:space-between;padding:4px 5px 13px;color:#7b858f;font-size:9px;letter-spacing:.17em}.ps-head i{width:6px;height:6px;border-radius:50%;background:#3da6ff;box-shadow:0 0 15px #3da6ff}
@@ -354,8 +354,21 @@ footer{text-align:center;padding:38px 20px;color:#6e6e73;border-top:1px solid #2
 .ps-markup{position:absolute;left:5vw;bottom:8vh;padding:12px 16px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.05);border-radius:15px;z-index:7;opacity:0;transform:translateY(15px)}.ps-markup small{font-size:8px;letter-spacing:.15em;color:#79838d}.ps-markup strong{font-size:25px;margin-left:9px}.ps-markup span{font-size:9px;color:#616b75;margin-left:7px}
 .ps-sale{position:absolute;right:6vw;bottom:8vh;text-align:right;z-index:8;opacity:0;transform:translateY(28px) scale(.94)}.ps-sale small{display:block;font-size:9px;letter-spacing:.18em;color:#7c8791}.ps-sale strong{display:block;font-size:clamp(64px,8vw,118px);line-height:.88;letter-spacing:-.07em;background:linear-gradient(90deg,#fff,#82c4ff);-webkit-background-clip:text;background-clip:text;color:transparent}.ps-sale span{font-size:10px;color:#69737d}
 .ps-progress{position:absolute;left:5vw;right:5vw;bottom:3.5vh;height:1px;background:#20252a;z-index:10}.ps-progress i{display:block;height:2px;width:0;background:#fff;transform-origin:left}
-@media(max-width:800px){.price-story{height:330vh}.ps-title{left:5vw;top:9vh;width:90vw}.ps-title h2{font-size:clamp(45px,13vw,70px)}.ps-title p{font-size:12px}.ps-calculation{left:5vw;right:5vw;top:31vh;width:auto;padding:12px;border-radius:21px}.ps-item{grid-template-columns:24px 1fr auto;padding:8px 4px}.ps-item b{font-size:11px}.ps-item small{font-size:7px}.ps-item>strong{font-size:9px}.ps-self{padding-top:11px}.ps-self strong{font-size:28px}.ps-running{left:5vw;bottom:12vh;width:165px;padding:12px 14px}.ps-running strong{font-size:27px}.ps-running span{font-size:8px}.ps-markup{left:5vw;bottom:5.5vh;padding:8px 11px}.ps-markup strong{font-size:20px}.ps-markup span{display:none}.ps-sale{left:5vw;right:auto;bottom:5.5vh;text-align:left}.ps-sale strong{font-size:57px}.ps-sale span{display:none}.ps-progress{bottom:2.5vh}}
+@media(max-width:800px){.price-story{height:205vh}.ps-title{left:5vw;top:9vh;width:90vw}.ps-title h2{font-size:clamp(45px,13vw,70px)}.ps-title p{font-size:12px}.ps-calculation{left:5vw;right:5vw;top:31vh;width:auto;padding:12px;border-radius:21px}.ps-item{grid-template-columns:24px 1fr auto;padding:8px 4px}.ps-item b{font-size:11px}.ps-item small{font-size:7px}.ps-item>strong{font-size:9px}.ps-self{padding-top:11px}.ps-self strong{font-size:28px}.ps-running{left:5vw;bottom:12vh;width:165px;padding:12px 14px}.ps-running strong{font-size:27px}.ps-running span{font-size:8px}.ps-markup{left:5vw;bottom:5.5vh;padding:8px 11px}.ps-markup strong{font-size:20px}.ps-markup span{display:none}.ps-sale{left:5vw;right:auto;bottom:5.5vh;text-align:left}.ps-sale strong{font-size:57px}.ps-sale span{display:none}.ps-progress{bottom:2.5vh}}
 @media(prefers-reduced-motion:reduce){.price-story{height:auto}.price-story-sticky{position:relative;height:auto;padding:100px 0}.ps-item,.ps-markup,.ps-sale{opacity:1;transform:none}}
+</style>
+
+<style id="v10-no-black-tail">
+.price-story-sticky:after{
+  content:"";
+  position:absolute;left:0;right:0;bottom:0;height:13vh;
+  background:linear-gradient(to bottom,rgba(5,6,7,0),#050607 72%);
+  pointer-events:none;z-index:2;
+}
+.ps-sale,.ps-running,.ps-markup,.ps-calculation,.ps-title,.ps-top{z-index:6}
+@media(max-width:800px){
+  .price-story-sticky:after{height:8vh}
+}
 </style>
 </head>
 <body>
@@ -731,6 +744,6 @@ addEventListener('scroll',()=>{if(!hero)return;const p=Math.min(scrollY/innerHei
 })();
 </script>
 
-<script id="v9-price-story-js">(function(){const s=document.querySelector(".price-story");if(!s)return;const items=[...s.querySelectorAll(".ps-item")],run=s.querySelector(".ps-running strong"),self=s.querySelector(".ps-self strong"),markup=s.querySelector(".ps-markup"),sale=s.querySelector(".ps-sale"),bar=s.querySelector(".ps-progress i");const values=items.map(x=>Number(x.dataset.value));const fmt=n=>n.toLocaleString("de-DE",{minimumFractionDigits:2,maximumFractionDigits:2})+" €";const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));function update(){const r=s.getBoundingClientRect(),p=clamp(-r.top/Math.max(1,r.height-innerHeight),0,1),build=clamp(p/.78,0,1),raw=build*7,full=Math.min(7,Math.floor(raw)),frac=clamp(raw-full,0,1);let sum=values.slice(0,full).reduce((a,b)=>a+b,0);if(full<7)sum+=values[full]*frac;items.forEach((el,i)=>{el.classList.toggle("visible",i<full||(i===full&&frac>.06));el.classList.toggle("current",i===full&&frac<.96)});run.textContent=fmt(sum);self.textContent=fmt(full>=7?17.79:sum);const mp=clamp((p-.78)/.09,0,1);markup.style.opacity=mp;markup.style.transform="translateY("+(1-mp)*15+"px)";const sp=clamp((p-.88)/.12,0,1);sale.style.opacity=sp;sale.style.transform="translateY("+(1-sp)*28+"px) scale("+(0.94+.06*sp)+")";bar.style.width=p*100+"%"}addEventListener("scroll",update,{passive:true});addEventListener("resize",update);update()})();</script>
+<script id="v9-price-story-js">(function(){const s=document.querySelector(".price-story");if(!s)return;const items=[...s.querySelectorAll(".ps-item")],run=s.querySelector(".ps-running strong"),self=s.querySelector(".ps-self strong"),markup=s.querySelector(".ps-markup"),sale=s.querySelector(".ps-sale"),bar=s.querySelector(".ps-progress i");const values=items.map(x=>Number(x.dataset.value));const fmt=n=>n.toLocaleString("de-DE",{minimumFractionDigits:2,maximumFractionDigits:2})+" €";const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));function update(){const r=s.getBoundingClientRect(),p=clamp(-r.top/Math.max(1,r.height-innerHeight),0,1),build=clamp(p/.72,0,1),raw=build*7,full=Math.min(7,Math.floor(raw)),frac=clamp(raw-full,0,1);let sum=values.slice(0,full).reduce((a,b)=>a+b,0);if(full<7)sum+=values[full]*frac;items.forEach((el,i)=>{el.classList.toggle("visible",i<full||(i===full&&frac>.06));el.classList.toggle("current",i===full&&frac<.96)});run.textContent=fmt(sum);self.textContent=fmt(full>=7?17.79:sum);const mp=clamp((p-.72)/.10,0,1);markup.style.opacity=mp;markup.style.transform="translateY("+(1-mp)*15+"px)";const sp=clamp((p-.82)/.18,0,1);sale.style.opacity=sp;sale.style.transform="translateY("+(1-sp)*28+"px) scale("+(0.94+.06*sp)+")";bar.style.width=p*100+"%"}addEventListener("scroll",update,{passive:true});addEventListener("resize",update);update()})();</script>
 </body>
 </html>
